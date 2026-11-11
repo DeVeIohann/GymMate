@@ -1030,7 +1030,7 @@ class Gymmate_api extends Controller
                 start_time TIME NOT NULL,
                 duration_minutes INTEGER NOT NULL DEFAULT 60,
                 status VARCHAR(20) NOT NULL DEFAULT 'pending',
-                note TEXT NOT NULL DEFAULT '',
+                note TEXT NOT NULL,
                 created_at DATETIME NOT NULL,
                 FOREIGN KEY (member_id) REFERENCES gymmate_users(id),
                 FOREIGN KEY (trainer_id) REFERENCES gymmate_trainers(id)

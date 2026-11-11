@@ -14,4 +14,7 @@ export default defineConfig({
       },
     },
   },
+  preview: {
+    allowedHosts: ['gymmate-frontend-yxmo.onrender.com'],
+  },
 });

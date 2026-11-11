@@ -19,10 +19,11 @@ class Gymmate_api extends Controller
         require_once APP_DIR . 'libraries/Gymmate_gmail.php';
         $this->gmail = new Gymmate_gmail();
         if (session_status() !== PHP_SESSION_ACTIVE) {
+            $production = getenv('APP_ENV') === 'production';
             session_set_cookie_params([
                 'httponly' => true,
-                'samesite' => 'Lax',
-                'secure' => (getenv('APP_ENV') === 'production')
+                'samesite' => $production ? 'None' : 'Lax',
+                'secure' => $production
                     || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'),
                 'path' => '/',
             ]);

@@ -38,9 +38,11 @@ const defaultPlanFeatures = [
 const dateLabel = (value, options = { month: 'short', day: 'numeric' }) =>
   value ? new Intl.DateTimeFormat('en', options).format(new Date(`${value}T00:00:00`)) : '—';
 
+const apiBaseUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
 async function api(path, options = {}) {
-  const response = await fetch(`/api${path}`, {
-    credentials: 'same-origin',
+  const response = await fetch(`${apiBaseUrl}/api${path}`, {
+    credentials: 'include',
     headers: { 'Content-Type': 'application/json', ...options.headers },
     ...options,
   });

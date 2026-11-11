@@ -21,7 +21,8 @@ class Gymmate_api extends Controller
             session_set_cookie_params([
                 'httponly' => true,
                 'samesite' => 'Lax',
-                'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+                'secure' => (getenv('APP_ENV') === 'production')
+                    || (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'),
                 'path' => '/',
             ]);
             session_start();
@@ -132,7 +133,7 @@ class Gymmate_api extends Controller
                 'domain' => $params['domain'],
                 'secure' => $params['secure'],
                 'httponly' => $params['httponly'],
-                'samesite' => 'Lax',
+                'samesite' => $params['samesite'],
             ]);
         }
         session_destroy();

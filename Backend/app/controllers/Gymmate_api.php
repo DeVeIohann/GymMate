@@ -15,6 +15,7 @@ class Gymmate_api extends Controller
 
     public function before_action()
     {
+        handle_cors();
         require_once APP_DIR . 'libraries/Gymmate_gmail.php';
         $this->gmail = new Gymmate_gmail();
         if (session_status() !== PHP_SESSION_ACTIVE) {

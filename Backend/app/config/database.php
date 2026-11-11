@@ -58,15 +58,15 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 */
 
 $database['main'] = array(
-    'driver'	=> getenv('DB_DRIVER') ?: 'sqlite',
-    'hostname'	=> getenv('DB_HOST') ?: '',
-    'port'		=> getenv('DB_PORT') ?: '',
-    'username'	=> getenv('DB_USER') ?: '',
+    'driver'	=> getenv('DB_DRIVER') ?: 'mysql',
+    'hostname'	=> getenv('DB_HOST') ?: 'mysql-334b58b3-delavegaiohann0-3b63.a.aivencloud.com',
+    'port'		=> getenv('DB_PORT') ?: '27354',
+    'username'	=> getenv('DB_USER') ?: 'avnadmin',
     'password'	=> getenv('DB_PASSWORD') ?: '',
-    'database'	=> getenv('DB_NAME') ?: '',
+    'database'	=> getenv('DB_NAME') ?: 'GymMate',
     'charset'	=> getenv('DB_CHARSET') ?: '',
     'dbprefix'	=> getenv('DB_PREFIX') ?: '',
-    'path'      => getenv('DB_PATH') ?: ROOT_DIR . 'runtime' . DIRECTORY_SEPARATOR . 'gymmate.sqlite'
+    'path'      => getenv('DB_PATH') ?: ''
 );
-
+//ROOT_DIR . 'runtime' . DIRECTORY_SEPARATOR . 'gymmate.sqlite'
 ?>
